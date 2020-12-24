@@ -1,0 +1,118 @@
+<template>
+  <div>
+    <div class="fade"></div>
+    <section class="star-wars">
+      <div class="crawl">
+        <div class="title">
+          <p>Episode X</p>
+          <h1>A New Hope Again</h1>
+        </div>
+
+        <p>
+          It is a period of crisis. A rebel coronavirus, striking from a hidden
+          country, has won its first victory against the good people of the
+          world.
+        </p>
+        <p>
+          During the battle,Rebel companies managed to steal secret plans to the
+          virus ultimate RNA and they are making vaccines.
+        </p>
+        <p>
+          Pursued by the Trumps’s sinister agents, Pfizer races home aboard her
+          vaccine, custodian of the stolen plans that can save the people and
+          restore health to the earth…
+        </p>
+        <p>Click me!!</p>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 12vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+.starwars-title {
+  color: transparent;
+  font-size: 4.5rem;
+  text-align: center;
+  font-family: "starwars";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: gold;
+}
+
+.star-wars {
+  /* Flexbox to center the entire element on the screen */
+  display: flex;
+  justify-content: center;
+  /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+  height: 700px;
+  /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+  perspective: 400px;
+  /* The rest is totally up to personal styling preferences */
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  text-align: justify;
+}
+
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Making sure the text is fully off the screen at the start and end of the animation */
+  top: -100px;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+}
+
+@keyframes crawl {
+  0% {
+    /* The element starts below the screen */
+    top: 0;
+    /* Rotate the text 20 degrees but keep it close to the viewer */
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+    top: -6000px;
+    /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+  /* Adds the crawl animation, which plays for one minute */
+  animation: crawl 60s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .title h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+  .title p {
+    font-size: 40px;
+    text-align: center;
+  }
+  .crawl p {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+</style>
